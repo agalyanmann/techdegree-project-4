@@ -29,10 +29,18 @@ class Game {
   }
 
   handleInteraction(letter) {
-    this.activePhrase.checkLetter(letter);
-    this.activePhrase.showMatchedLetter(letter);
-    this.checkForWin();
-    this.removeLife();
+    const userGuess = this.activePhrase.checkLetter(letter);
+    letter.disabled = true;
+    if (!userGuess) {
+      letter.className = "wrong";
+      this.removeLife(letter);
+    } else {
+      letter.className = "chosen";
+      this.activePhrase.showMatchedLetter(letter);
+      if (this.checkForWin()) {
+        this.gameOver();
+      }
+    }
   }
 
   checkForWin() {
@@ -41,8 +49,27 @@ class Game {
     const win = winningPhraseLength === currentPhraseLength ? true : false;
     return win;
   }
-  removeLife() {
-    const hearts = document.querySelectorAll(".tries");
+  removeLife(letter) {
+    const hearts = document.querySelectorAll("img");
+    const checkLife = this.activePhrase.checkLetter(letter);
+    if (!checkLife) {
+      hearts[this.missed].src = "images/lostHeart.png";
+      this.missed += 1;
+      if (this.missed === 5) {
+        this.gameOver();
+      }
+    }
   }
-  gameOver() {}
+  gameOver() {
+    const divOverlay = document.querySelector("#overlay");
+    const h1WinLoseText = document.querySelector("#game-over-message");
+    divOverlay.style.display = "";
+    if (this.missed === 5) {
+      h1WinLoseText.textContent = "Sorry, you lose";
+      divOverlay.className = "lose";
+    } else {
+      h1WinLoseText.textContent = "Congrats, you win!";
+      divOverlay.className = "win";
+    }
+  }
 }

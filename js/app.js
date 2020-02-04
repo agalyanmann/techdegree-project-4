@@ -13,8 +13,8 @@ startButton.addEventListener("click", () => {
 });
 
 keyboard.addEventListener("click", event => {
-  const letter = event.target.textContent;
-  if (letter.length > 1) {
+  const letter = event.target;
+  if (letter.textContent.length > 1) {
     event.preventDefault();
   } else {
     game.handleInteraction(letter);

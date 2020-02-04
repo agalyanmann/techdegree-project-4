@@ -21,13 +21,13 @@ class Phrase {
     });
   }
   checkLetter(letter) {
-    const selectedLetter = this.phrase.includes(letter) ? true : false;
+    const selectedLetter = this.phrase.includes(letter.textContent) ? true : false;
     return selectedLetter;
   }
   showMatchedLetter(letter) {
     document.querySelectorAll(".letter").forEach(li => {
-      if (li.textContent === letter) {
-        li.className = `show letter ${letter}`;
+      if (li.textContent === letter.textContent) {
+        li.className = `show letter ${letter.textContent}`;
       }
     });
   }
