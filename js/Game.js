@@ -34,7 +34,7 @@ class Game {
     this.resetGame();
 
     const phrase = new Phrase(game.getRandomPhrase());
-    $("#overlay").fadeOut(1000);
+    $("#overlay").fadeOut();
     phrase.addPhraseToDisplay();
     this.activePhrase = phrase;
   }
