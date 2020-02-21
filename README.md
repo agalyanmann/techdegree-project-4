@@ -1,8 +1,8 @@
 # techdegree-project-4
 
--Object-Oriented JavaScript Game Show App
--HTML & CSS provided by Treehouse (modified by Andrew Galyan-Mann)
--JavaScript by Andrew Galyan-Mann
+- Object-Oriented JavaScript Game Show App
+- HTML & CSS provided by Treehouse (modified by Andrew Galyan-Mann)
+- JavaScript by Andrew Galyan-Mann
 
 ## Exceeds credit changes 
 
